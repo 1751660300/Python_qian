@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 """
+镜像：https://npm.taobao.org/mirrors/chromedriver/
 使用selenium报错原因：
     1.浏览器加载失败，版本更新失败
     2.webdriver版本和要操作的浏览器版本相差过大

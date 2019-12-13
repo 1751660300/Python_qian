@@ -18,6 +18,7 @@ try:
     print(win_list)
     driver.switch_to.window(win_list[0])
     time.sleep(3)
+    driver.switch_to.frame()
 # except Exception as e:
 #     print(e)
 finally:
