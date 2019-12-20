@@ -1,0 +1,38 @@
+"""
+1.多进程注意事项
+    a.主进程等待子进程
+        让进程设置守护 p1 = multiprocessing.Process(target=dance, daemon=True)
+        进程对象p1.daemon = True
+    b.进程不会共享全局变量
+        阻塞主进程，p1.join()
+        原理：操作系统会单独资源，子进程会把父进程资源复制一份
+2.销毁子进程
+    a.taskkill
+    b.p1.terminate()  # 销毁子进程
+3.实现进程间的通信
+    a.协议层
+        数据套接字socket，进程间通信媒介（搬运各个进程间的数据）
+    b.文件传输（数据库）
+    c.消息队列 Queue
+        程序在计算机中开辟的由计算机操作系统分配数据的容器，保存运行内存中
+        队列的特点：IFIO 先进先出，后进后出
+        作用：1.同行 2.程序的解藕
+        使用：1.直接使用python的内置模块queue
+                from queue import Queue
+            2.内置的进程模块提供的Queue类
+                from multiprocessing import queue
+            3.可以阻塞进程的JoinableQueue
+                from multiprocessing import JoinableQueue
+4.消息队列
+    创建消息队列 参数表示最大长度
+    queue = Queue([number]) 返回一个对象
+    queue.put(data) data可以是任意数据类型，如果满了就会阻塞进程
+    queue.put_nowait() 如果队列满了回报错，告诉使用者队列满了
+
+    queue.qsize()    长度
+    queue.full()    是否满了
+    queue.empty()  是否为空
+    queue.get()     获取队列线存储的数据，并且删除取到的数据，如果没有，就会阻塞主进程
+    queue.get_nowait()不等待，报错
+
+"""
