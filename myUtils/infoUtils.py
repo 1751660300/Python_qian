@@ -5,7 +5,8 @@ import random
 
 class infoList(object):
     def __init__(self):
-        file = open('F:\pycharm\Python_qian\myUtils\headInfo', "r", encoding="utf-8")
+        # file = open('F:\pycharm\Python_qian\myUtils\headInfo', "r", encoding="utf-8")
+        file = open('/root/PycharmProjects/Python_qian/myUtils/headInfo', "r", encoding="utf-8")
         self.et = etree.HTML(file.read())
         file.close()
 

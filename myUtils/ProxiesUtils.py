@@ -5,7 +5,7 @@ import retrying
 from day21JSON动态网站爬取 import utils
 
 
-@retrying.retry(stop_max_delay=200, stop_max_attempt_number=1)
+@retrying.retry(stop_max_delay=20, stop_max_attempt_number=1)
 def res(p, hd, url):
     # url 待爬的网站
     re = requests.get(url, headers=hd, proxies=p)
@@ -13,7 +13,8 @@ def res(p, hd, url):
 
 
 def getProxies(queue, url):
-    file = open('F:\pycharm\Python_qian\myUtils\XiCi01.html', "r", encoding="utf-8")
+    # file = open('F:\pycharm\Python_qian\myUtils\XiCi01.html', "r", encoding="utf-8")
+    file = open('/root/PycharmProjects/Python_qian/myUtils/XiCi01.html', "r", encoding="utf-8")
     s = file.read()
     file.close()
     e = etree.HTML(s)

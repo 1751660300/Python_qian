@@ -2,6 +2,7 @@
 from myUtils import ProxiesUtils
 import time
 from multiprocessing import *
+import lxml
 
 
 def st(queue, Flag):
@@ -28,7 +29,7 @@ if __name__ == '__main__':
     queue = Queue()
     print("主进程：", queue)
     flag = True
-    url = "https://www.baidu.com/"
+    url = "http://www.wpuic.net.cn/index.html#"
     ps1 = Process(target=st, args=(queue, flag))
     ps2 = Process(target=ProxiesUtils.getProxies, args=(queue, url))
     ps2.start()
