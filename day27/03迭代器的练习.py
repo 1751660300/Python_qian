@@ -1,4 +1,13 @@
 # -*- coding:utf-8 -*-
+# 输入一句英语可以遍历所有的单词
+# 例如： 输入：we are the world
+# 输出：
+# we
+# are
+# the
+# world
+
+
 class english(object):
     def __init__(self, s):
         self.word_list = s.split(" ")
