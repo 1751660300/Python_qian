@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-with open("01__new__shiyong.py", "r") as f:
+with open("01__new__的使用.py", "r") as f:
     # print(f.readline())
     # print(f.readline())
     # print(f.readlines())
