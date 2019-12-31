@@ -1,0 +1,33 @@
+1.socket网络套接字
+    概念：是进程间通信的一个工具
+    作用：不同电脑上的进程之间的通信
+    使用前提：必须遵循协议，必须确认ip地址和端口进行数据搬运
+    socket应用场景：只要联网的程序都是使用socket进行数据搬运的
+2.网络编程
+    udp的服务器和客户端
+    a.创建套接字 import socket
+        socket类：socket(adressfrom,协议)
+        addressfrom类型：socket.AF_INET IPv4 ;socket.AF_INET6 IPv4
+        协议：socket.SOCK_DGRAM 数据报套接字  SOCK_STREAM 流式套接字
+mysql
+    a.连接数据库
+        导入模块：import pymysql
+        建立连接：con = pymysql.connect(host=, port=, database=, user=, password=, charset=) 返回一个连接对象
+            host：数据库的地址（ip）
+            port：端口号
+            database：数据库名称
+            user：用户名
+            password：密码
+            charset：编码格式
+        获取cursor对象：cur = con.cursor() 返回cursor对象
+            cursor对象的方法：
+                fetchall()获取全部查询结果
+                fetchone()获取一条查询结果
+    b.对数据库进行操作
+        使用cursor对象的execute(express)方法
+        参数：sql语句
+    c.提交
+        con.commit()
+    d.断开连接
+        cur.close()
+        con.close()
