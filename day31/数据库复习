@@ -6,3 +6,182 @@
     2.文件管理阶段
     3.数据库管理阶段
         优点：数据结构化，较高的数据共享，统一管理和数据控制
+1.2.1：数据库系统的组成
+    硬件，数据库，os，DBMS，数据库开发工具，数据库应用工具，数据库应用系统，人员
+1.2.2：数据库系统的结构
+    三级模式，两级映像
+    外模式：数据库与外部应用的接口，是用户能够看见和使用的局部数据逻辑结构和特征的描述
+    模式：是数据库全部数据逻辑结构和特征的描述
+    内模式：是对数据物理结构和存储方式的描述
+    外模式/模式映像：保证了数据与程序的逻辑独立性
+    模式内模式映像：保证了数据与程序的物理独立性
+1.3.1：数据处理的三个阶段
+    1.概念模型：包括了实体，实体集，属性，实体标识符
+        二元关系：一对一，一对多，多对多
+    2.逻辑模型：字段，记录，文件，关键码
+    3.物理模型：用于描述数据在物理存储介质上的组织结构，与具体的数据库管理系统，操作系统和计算机硬件都有关系
+1.3.2：常见的数据模型
+    1.层次模型
+    2.网状模型
+    3.关系模型
+    4.面向对象模型
+1.4.1：处理大规模的数据的数据库
+    1.分布式数据库
+    2.并行数据库
+    3.NoSQL数据库
+    4.云数据库
+    5.XML数据库
+4.2.1：sql语言
+    1.特点：高度非过程化，面向集合的操作方式，语法简单，是关系型数据库的标准语言
+    2.常用的sql语言命令
+        1.数据操作语言DML：select，insert，update，delete
+        2.数据定义语言DDL：create，drop，alter
+        3.数据控制语言DCL：grant，revoke（撤销权限），commit，rollback
+4.2.2：sql语法基础
+    1.常见的数据类型：
+        1.整数数据类型：int（4字节），smallint（2字节），tinyint（1字节），bit（存储0|1|null）
+        2.浮点数据类型：real（4字节），float（8字节）
+        3.字符串类型：char[(n)]，varchar[(n)]，nchar(n)，text
+        4.日期和时间数据类型：date（存储格式：YYYY-MM-DD）time（存储格式：hh:mm:ss），datetime（存储格式：YYYY-MM-DD hh:mm:ss）
+        5.货币数据类型：money（8字节），smallmoney（4字节）
+        6.自定义数据类型：create type[架构.] typeName from <基类型>[精度，位数] [null|not null]
+    2.常量：数值常量，字符常量，日期常量
+    3.变量：
+        1.全局变量：使用@@变量名，全局变量是系统预定义好的，用户可以使用，但是用户不能自己定义
+            常用的全局变量：
+                @@CONNECTIONS
+                返回自上次启动以来连接或试图连接的次数。
+
+                @@CURSOR_ROWS
+                返回连接上最后打开的游标中当前存在的合格行的数量(返回被打开的游标中还未被读取的有效数据行的行数)
+
+
+                @@DATEFIRST
+                返回每周第一天的数字
+
+                @@ERROR
+                返回最后执行的SQL 语句的错误代码。
+
+                @@FETCH_STATUS
+                返回被 FETCH 语句执行的最后游标的状态，而不是任何当前被连接打开的游标的状态。
+
+                @@IDENTITY
+                返回最后插入的标识值
+
+                @@LANGID
+                返回当前所使用语言的本地语言标识符(ID)。
+
+                @@LANGUAGE
+                返回当前使用的语言名。
+
+                @@LOCK_TIMEOUT
+                返回当前会话的当前锁超时设置，单位为毫秒。
+
+                @@PROCID
+                返回当前过程的存储过程标识符 (ID) 。
+
+                @@ROWCOUNT
+                返回受上一语句影响的行数。
+
+                @@SERVERNAME
+                返回运行 的本地服务器名称。
+
+                @@SPID
+                返回当前用户进程的服务器进程标识符 (ID)。
+
+                @@TRANCOUNT
+                返回当前连接的活动事务数。
+
+                @@VERSION
+                返回当前安装的日期、版本和处理器类型。
+
+                @@CPU_BUSY
+                返回自SQL Server 最近一次启动以来CPU 的工作时间其单位为毫秒
+
+                @@DATEFIRST
+                返回使用SET DATEFIRST 命令而被赋值的DATAFIRST 参数值SET DATEFIRST，命令用来指定每周的第一天是星期几
+
+                @@DBTS
+                返回当前数据库的时间戳值必须保证数据库中时间戳的值是惟一的
+
+                @@FETCH_STATUS
+                返回上一次FETCH 语句的状态值
+
+                @@IDEL
+                返回自SQL Server 最近一次启动以来CPU 处于空闭状态的时间长短单位为毫秒
+
+                @@IO_BUSY
+                返回自SQL Server 最近一次启动以来CPU 执行输入输出操作所花费的时间其单位为毫秒
+
+                @@LANGUAGE
+                返回当前使用的语言名称
+
+                @@MAX_CONNECTIONS
+                返回允许连接到SQL Server 的最大连接数目
+
+                @@MAX_PRECISION
+                返回decimal 和numeric 数据类型的精确度
+
+                @@NESTLEVEL
+                返回当前执行的存储过程的嵌套级数初始值为0
+
+                @@OPTIONS
+                返回当前SET 选项的信息
+
+                @@PACK_RECEIVED
+                返回SQL Server 通过网络读取的输入包的数目
+
+                @@PACK_SENT
+                返回SQL Server 写给网络的输出包的数目
+
+                @@PACKET_ERRORS
+                返回网络包的错误数目
+
+                @@PROCID
+                返回当前存储过程的ID 值
+
+                @@REMSERVER
+                返回远程SQL Server 数据库服务器的名称
+
+                @@SERVICENAME
+                返回SQL Server 正运行于哪种服务状态之下如MSSQLServer MSDTC SQLServerAgent
+
+                @@SPID
+                返回当前用户处理的服务器处理ID 值
+
+                @@TEXTSIZE
+                返回SET 语句的TEXTSIZE 选项值SET 语句定义了SELECT 语句中text 或image数据类型的最大长度基本单位为字节
+
+                @@TIMETICKS
+                返回每一时钟的微秒数
+
+                @@TOTAL_ERRORS
+                返回磁盘读写错误数目
+
+                @@TOTAL_READ
+                返回磁盘读操作的数目
+
+                @@TOTAL_WRITE
+                返回磁盘写操作的数目
+
+                @@TRANCOUNT
+                返回当前连接中处于激活状态的事务数目
+        2.局部变量（要使用declare）
+            格式：declare @name1 变量类型 , @name2 变量类型 , ...
+            给局部变量赋值：select @name = 值 | set @name = 值
+    4.输出语句：print()
+    5.常用的运算符：+ - * / % = > < <> >= <= or and not
+    6.注释 -- 或\*....*\
+    7.常用的系统函数
+        字符串函数：substring(表达式，起始，长度) 取子串
+                    right(表达式，长度) 取右子串
+                    str(表达式)类型转换
+                    ltirm(表达式),rtirm(表达式)取左右空格
+                    charindex(子串，母串)返回子串开始的位置
+        。。。见书本
+4.3：流程控制语句
+    begin ... end
+    if else
+    case when
+    waitfor delay '00:00:00'
+    waitfor time '00:00:00'
