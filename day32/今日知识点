@@ -12,8 +12,17 @@
             sql语句的数据地方要使用占位符，data的类型是列表中套元组
             sql = 'insert into hero(name,guo_ji) values (name=%s,guo_ji=%s)'
             data = [('貂蝉','汉'), ('貂蝉','汉'), ...]
+        提交：con.commit()
     5.查询
         1.需要执行sql语句
         2.使用curs.fetchall()  查看全部
              curs.fetchone()  查看一条,再次使用则会查看下一条
+二.yield关键字
+    作用：和return功能一样可以结束函数，但是yield表示暂停
+    使用yield关键字创建生成器
+        必须在函数中使用
+        尽量使用while来遍历数据
+        使用yield关键字返回数据
+        必须执行了才是生成器
+三.http服务器
 """
