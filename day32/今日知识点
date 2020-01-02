@@ -1,0 +1,19 @@
+"""
+一.连接数据库
+    1.导入模块：import pymysql
+    2.使用connect连接sql数据库
+        con = pymysql.connect(host="localhost", port=3306, database="san_guo", user="root", password="mysql",
+                                  charset="utf8")
+    3.获取游标
+        cursor = con.cursor()
+    4.执行sql，并提交
+        curs.execute(sql) 执行一条sql语句
+        curs.executemany(sql,data) 执行多条条sql语句
+            sql语句的数据地方要使用占位符，data的类型是列表中套元组
+            sql = 'insert into hero(name,guo_ji) values (name=%s,guo_ji=%s)'
+            data = [('貂蝉','汉'), ('貂蝉','汉'), ...]
+    5.查询
+        1.需要执行sql语句
+        2.使用curs.fetchall()  查看全部
+             curs.fetchone()  查看一条,再次使用则会查看下一条
+"""
